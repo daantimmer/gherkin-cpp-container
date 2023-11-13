@@ -32,6 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
       - run: clang-cl --version
+      - run: ./get-winsdk.sh
       - run: |
           cmake --preset=clang-cl
           cmake --build --preset=clang-cl
@@ -62,6 +63,7 @@ jobs:
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
       - run: clang-cl --version
+      - run: ./get-winsdk.sh
       - run: |
           cmake --preset=clang-cl
           cmake --build --preset=clang-cl
