@@ -1,5 +1,5 @@
 FetchContent_Declare(cucumber-messages
-    GIT_REPOSITORY https://github.com/cucumber/messages.git
+    GIT_REPOSITORY https://github.com/daantimmer/messages.git
     GIT_TAG "main"
 
     OVERRIDE_FIND_PACKAGE

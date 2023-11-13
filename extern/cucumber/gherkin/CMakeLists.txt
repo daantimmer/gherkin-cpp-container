@@ -1,5 +1,5 @@
 FetchContent_Declare(cucumber_gherkin
-    GIT_REPOSITORY https://github.com/cucumber/gherkin.git
+    GIT_REPOSITORY https://github.com/daantimmer/gherkin.git
     GIT_TAG "main"
 )
 
