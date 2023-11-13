@@ -1,0 +1,54 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 24,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "defaults",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/.build/${presetName}",
+            "generator": "Ninja Multi-Config",
+            "cacheVariables": {
+                "CMAKE_CONFIGURATION_TYPES": "Debug;Release;RelWithDebInfo;MinSizeRel",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "On"
+            }
+        },
+        {
+            "name": "clang",
+            "inherits": "defaults",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang",
+                "CMAKE_CXX_COMPILER": "clang++"
+            }
+        },
+        {
+            "name": "clang-cl",
+            "inherits": "defaults",
+            "toolchainFile": "${sourceDir}/toolchain-clang-x86_64-pc-windows-msvc.cmake"
+        },
+        {
+            "name": "gcc",
+            "inherits": "defaults"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "clang",
+            "configuration": "Debug",
+            "configurePreset": "clang"
+        },
+        {
+            "name": "clang-cl",
+            "configuration": "Debug",
+            "configurePreset": "clang"
+        },
+        {
+            "name": "gcc",
+            "configuration": "Debug",
+            "configurePreset": "gcc"
+        }
+    ]
+}
