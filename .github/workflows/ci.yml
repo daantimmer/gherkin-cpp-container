@@ -16,29 +16,62 @@ env:
   GTEST_COLOR: 1
 
 jobs:
-  build-clang:
+  build-clang-16:
     runs-on: [ubuntu-latest]
     container: ghcr.io/philips-software/amp-devcontainer:4.0.2
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
+      - run: clang --version
       - run: |
           cmake --preset=clang
           cmake --build --preset=clang
 
-  build-clang-cl:
+  build-clang-cl-16:
     runs-on: [ubuntu-latest]
     container: ghcr.io/philips-software/amp-devcontainer:4.0.2
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
+      - run: clang-cl --version
       - run: |
           cmake --preset=clang-cl
           cmake --build --preset=clang-cl
 
-  build-gcc:
+  build-gcc-12:
     runs-on: [ubuntu-latest]
     container: ghcr.io/philips-software/amp-devcontainer:4.0.2
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
+      - run: gcc --version
+      - run: |
+          cmake --preset=gcc
+          cmake --build --preset=gcc
+
+  build-clang-15:
+    runs-on: [ubuntu-latest]
+    container: ghcr.io/philips-software/amp-devcontainer:2.5.0
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
+      - run: clang --version
+      - run: |
+          cmake --preset=clang
+          cmake --build --preset=clang
+
+  build-clang-cl-15:
+    runs-on: [ubuntu-latest]
+    container: ghcr.io/philips-software/amp-devcontainer:2.5.0
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
+      - run: clang-cl --version
+      - run: |
+          cmake --preset=clang-cl
+          cmake --build --preset=clang-cl
+
+  build-gcc-10:
+    runs-on: [ubuntu-latest]
+    container: ghcr.io/philips-software/amp-devcontainer:2.5.0
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
+      - run: gcc --version
       - run: |
           cmake --preset=gcc
           cmake --build --preset=gcc
