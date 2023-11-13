@@ -1,6 +1,6 @@
 FetchContent_Declare(cucumber-messages
     GIT_REPOSITORY https://github.com/daantimmer/messages.git
-    GIT_TAG "main"
+    GIT_TAG "fix-compilation-issues-with-clang"
 
     OVERRIDE_FIND_PACKAGE
 )
