@@ -1,0 +1,44 @@
+---
+name: build
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+env:
+  GTEST_COLOR: 1
+
+jobs:
+  build-clang:
+    runs-on: [ubuntu-latest]
+    container: ghcr.io/philips-software/amp-devcontainer:4.0.2
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
+      - run: |
+          cmake --preset=clang
+          cmake --build --preset=clang
+
+  build-clang-cl:
+    runs-on: [ubuntu-latest]
+    container: ghcr.io/philips-software/amp-devcontainer:4.0.2
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
+      - run: |
+          cmake --preset=clang-cl
+          cmake --build --preset=clang-cl
+
+  build-gcc:
+    runs-on: [ubuntu-latest]
+    container: ghcr.io/philips-software/amp-devcontainer:4.0.2
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
+      - run: |
+          cmake --preset=gcc
+          cmake --build --preset=gcc
