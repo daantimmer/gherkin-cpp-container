@@ -43,7 +43,7 @@
         {
             "name": "clang-cl",
             "configuration": "Debug",
-            "configurePreset": "clang"
+            "configurePreset": "clang-cl"
         },
         {
             "name": "gcc",
