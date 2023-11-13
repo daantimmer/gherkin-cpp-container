@@ -42,7 +42,7 @@ jobs:
     container: ghcr.io/philips-software/amp-devcontainer:4.0.2
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
-      - run: gcc --version
+      - run: c++ --version
       - run: |
           cmake --preset=gcc
           cmake --build --preset=gcc
@@ -73,7 +73,7 @@ jobs:
     container: ghcr.io/philips-software/amp-devcontainer:2.5.0
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 #v4.1.0
-      - run: gcc --version
+      - run: c++ --version
       - run: |
           cmake --preset=gcc
           cmake --build --preset=gcc
